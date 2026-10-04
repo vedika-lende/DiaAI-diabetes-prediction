@@ -78,7 +78,7 @@ The application also displays the model's prediction confidence when available.
              └──────┬──────┘
                     ↓
        ┌────────────────────────┐
-       │ Enter Health Information│
+       │Enter Health Information│
        └───────────┬────────────┘
                    ↓
        ┌────────────────────────┐
@@ -90,7 +90,7 @@ The application also displays the model's prediction confidence when available.
        └───────────┬────────────┘
                    ↓
        ┌────────────────────────┐
-       │ Decision Tree Classifier│
+       │Decision Tree Classifier│
        └───────────┬────────────┘
                    ↓
        ┌────────────────────────┐
@@ -106,7 +106,7 @@ The application also displays the model's prediction confidence when available.
        └───────────┬────────────┘
                    ↓
        ┌────────────────────────┐
-       │ Store Prediction History│
+       │Store Prediction History│
        └───────────┬────────────┘
                    ↓
        ┌────────────────────────┐
