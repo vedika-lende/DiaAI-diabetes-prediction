@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction History | DiaAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+
+        <div>
+            <h2>DiaAI</h2>
+            <span>Diabetes Prediction</span>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <a href="{{ url_for('home') }}" class="nav-link">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="{{ url_for('home') }}" class="nav-link">
+            <i class="fa-solid fa-stethoscope"></i>
+            <span>Prediction</span>
+        </a>
+
+        <a href="{{ url_for('analytics') }}" class="nav-link">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+        </a>
+
+        <a href="{{ url_for('history') }}" class="nav-link active">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>History</span>
+        </a>
+
+        <a href="{{ url_for('about') }}" class="nav-link">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>About</span>
+        </a>
+
+    </nav>
+
+</div>
+
+
+<main class="main-content">
+
+    <header class="top-header">
+
+        <div>
+            <h1>Prediction History</h1>
+            <p>View your previous diabetes prediction results.</p>
+        </div>
+
+        <div class="header-actions">
+
+            <button class="theme-toggle" title="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <section class="page-card">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Recent Predictions
+                </h2>
+
+                <p>
+                    Your prediction records are stored during the current
+                    application session.
+                </p>
+            </div>
+
+            <div class="history-actions">
+
+                <a href="{{ url_for('download_history') }}"
+                   class="btn-primary">
+
+                    <i class="fa-solid fa-download"></i>
+                    Download CSV
+
+                </a>
+
+                <form action="{{ url_for('clear_history') }}"
+                      method="POST"
+                      onsubmit="return confirm('Clear all prediction history?');">
+
+                    <button type="submit" class="btn-danger">
+
+                        <i class="fa-solid fa-trash"></i>
+                        Clear History
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        {% if history %}
+
+        <div class="table-container">
+
+            <table class="prediction-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Prediction</th>
+                        <th>Confidence</th>
+                        <th>Glucose</th>
+                        <th>BMI</th>
+                        <th>Age</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for item in history %}
+
+                    <tr>
+
+                        <td>{{ item.date }}</td>
+
+                        <td>{{ item.time }}</td>
+
+                        <td>
+
+                            {% if item.prediction_class == "danger" %}
+
+                            <span class="status-badge danger">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                Diabetes Detected
+                            </span>
+
+                            {% else %}
+
+                            <span class="status-badge success">
+                                <i class="fa-solid fa-circle-check"></i>
+                                No Diabetes Detected
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            {{ item.probability }}%
+                        </td>
+
+                        <td>
+                            {{ item.Glucose }}
+                        </td>
+
+                        <td>
+                            {{ item.BMI }}
+                        </td>
+
+                        <td>
+                            {{ item.Age }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-history">
+
+            <div class="empty-icon">
+                <i class="fa-solid fa-folder-open"></i>
+            </div>
+
+            <h3>No Prediction History</h3>
+
+            <p>
+                You haven't made any diabetes predictions yet.
+            </p>
+
+            <a href="{{ url_for('home') }}" class="btn-primary">
+                <i class="fa-solid fa-stethoscope"></i>
+                Make a Prediction
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <div class="medical-notice">
+
+        <i class="fa-solid fa-shield-heart"></i>
+
+        <div>
+            <strong>Important Medical Notice</strong>
+
+            <p>
+                This prediction system is intended for educational and
+                research purposes only. It is not a medical diagnosis.
+                Please consult a qualified healthcare professional for
+                medical advice.
+            </p>
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

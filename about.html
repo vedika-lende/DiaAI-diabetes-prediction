@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>About | DiaAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-heart-pulse"></i>
+
+        </div>
+
+        <div>
+
+            <h2>DiaAI</h2>
+
+            <span>Diabetes Prediction</span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="{{ url_for('home') }}"
+           class="nav-link">
+
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="{{ url_for('home') }}"
+           class="nav-link">
+
+            <i class="fa-solid fa-stethoscope"></i>
+            <span>Prediction</span>
+
+        </a>
+
+
+        <a href="{{ url_for('analytics') }}"
+           class="nav-link">
+
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+
+        </a>
+
+
+        <a href="{{ url_for('history') }}"
+           class="nav-link">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>History</span>
+
+        </a>
+
+
+        <a href="{{ url_for('about') }}"
+           class="nav-link active">
+
+            <i class="fa-solid fa-circle-info"></i>
+            <span>About</span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+
+<main class="main-content">
+
+    <header class="top-header">
+
+        <div>
+
+            <h1>About DiaAI</h1>
+
+            <p>
+                Machine Learning based diabetes prediction system.
+            </p>
+
+        </div>
+
+
+        <button class="theme-toggle">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+    </header>
+
+
+    <section class="page-card">
+
+        <div class="about-hero">
+
+            <div class="about-icon">
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+            </div>
+
+
+            <h2>DiaAI</h2>
+
+            <p>
+                Intelligent Diabetes Prediction System
+            </p>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <h2>
+                <i class="fa-solid fa-lightbulb"></i>
+                Project Overview
+            </h2>
+
+            <p>
+                DiaAI is a Flask-based machine learning application
+                designed to predict diabetes risk using patient-related
+                input features.
+            </p>
+
+
+            <h2>
+                <i class="fa-solid fa-brain"></i>
+                Machine Learning Model
+            </h2>
+
+            <p>
+                The application uses a Decision Tree Classification
+                model trained on diabetes-related data.
+            </p>
+
+
+            <h2>
+                <i class="fa-solid fa-list-check"></i>
+                Input Features
+            </h2>
+
+
+            <div class="feature-list">
+
+                <div>
+                    <i class="fa-solid fa-person-pregnant"></i>
+                    Pregnancies
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-droplet"></i>
+                    Glucose
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    Blood Pressure
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-ruler"></i>
+                    Skin Thickness
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-syringe"></i>
+                    Insulin
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-weight-scale"></i>
+                    BMI
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-dna"></i>
+                    Diabetes Pedigree Function
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-calendar"></i>
+                    Age
+                </div>
+
+            </div>
+
+
+            <h2>
+                <i class="fa-solid fa-gears"></i>
+                Technology Stack
+            </h2>
+
+            <div class="tech-list">
+
+                <span>Python</span>
+
+                <span>Flask</span>
+
+                <span>Scikit-learn</span>
+
+                <span>NumPy</span>
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="medical-notice">
+
+        <i class="fa-solid fa-shield-heart"></i>
+
+        <div>
+
+            <strong>Medical Disclaimer</strong>
+
+            <p>
+                DiaAI is an educational and research project.
+                Its predictions should not be used as a substitute
+                for professional medical diagnosis, treatment, or advice.
+                Always consult a qualified healthcare professional.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <footer class="footer">
+
+        <p>
+            © 2026 DiaAI · Diabetes Prediction System
+        </p>
+
+    </footer>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
